@@ -1,0 +1,7 @@
+{
+    "env": {
+        "PORT": "4000",
+        "JWT_KEY": "secret",
+        "EXPIRE_IN": "10m"
+    }
+}
