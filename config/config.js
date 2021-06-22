@@ -1,5 +1,5 @@
 
-const env = process.env.NODE_ENV || 'env';
+const env = process.env.NODE_ENV || 'production';
 
 const config = require('./config.json');
 
