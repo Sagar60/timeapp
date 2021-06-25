@@ -58,7 +58,8 @@ app.use((error,req,res,next)=>{
 
 // server start module
 const server = http.createServer(app);
-const port = 8080
-server.listen( port,()=>{
-    console.log(`server started at port:${port}`);
-})
+const port = process.env.YOUR_PORT || process.env.PORT || 80;
+var server_host = process.env.YOUR_HOST || '0.0.0.0';
+server.listen( port,server_host,()=>{
+    console.log(`server started at port:${port} ${server_host}`);
+});
