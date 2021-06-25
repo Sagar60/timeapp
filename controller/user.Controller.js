@@ -11,15 +11,11 @@ let picNewPath ='uploads\\userProfilePics\\' +  picName;
 
 // register new user
 exports.newUser_post = (req,res,next)=>{
-    userSchema.find({ email: req.body.email })
+    userSchema.findOne({ email: req.body.email })
     .exec()
     .then( user => {
-        //console.log(user);
-        if( user.length >= 1 ){
-             res.status(409).json({
-                message: 'The user already has an account here'
-            })
-        }else{
+        // console.log(user);
+        if( !user ){            
             bcrypt.hash( req.body.password,10, (err,hash) =>{
                 if(err){
                     return res.status(500).json({
@@ -62,6 +58,7 @@ exports.newUser_post = (req,res,next)=>{
                         });
                     })
                     .catch( err =>{
+                        console.log( 'error here - '+ err);        
                         res.status(500).json({
                             message: 'user not created',
                             error: err
@@ -69,8 +66,22 @@ exports.newUser_post = (req,res,next)=>{
                     })
                 }
             })
-            }
-        })
+        }else{
+            res.status(401).json({
+                message: 'The user already has an account here'
+            })
+        }
+    })
+    .catch( err => {
+        console.log( 'error is here -'+ err);
+    })
+    // userSchema.findOne({ email: req.body.email })
+    // .exec()
+    // .then( result=>{
+    //     console.log(result);
+    // }).catch( err => {
+    //     console.log( 'error is here -'+ err);
+    // });
 }
 
 // authenticate for login
