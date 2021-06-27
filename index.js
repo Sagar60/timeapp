@@ -6,7 +6,7 @@ const morgan = require('morgan');       // morgan use to see what api use toin c
 const cors = require('cors');
 const checkAuth = require('./controller/tokenverify');
 
-require('./config/config');
+//require('./config/config');
 require('./config/db');
 
 app.use(morgan('dev'));
