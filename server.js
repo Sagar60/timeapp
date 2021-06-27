@@ -5,6 +5,10 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+
+require('./config/config');
+require('./config/db');
+
 // const express = require('express');
 // const app = express();
 
@@ -17,8 +21,11 @@ const cors = require('cors');
 // app.get('/',(req,res)=>{
 //     res.send('Hello Sagar');
 // })
-app.use(bodyParser.urlencoded({extended: false}))
+
 app.use(cors());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
 
 const userService = require('./routes/users');
 const picCotroller = require('./controller/pic.controller');
