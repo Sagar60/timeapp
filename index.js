@@ -54,7 +54,11 @@ app.use((error,req,res,next)=>{
             message: error.message
         }
     })
-})
+});
+
+app.get('/*',(req,res)=>{
+    console.log('hello');
+});
 
 // server start module
 const server = http.createServer(app);
