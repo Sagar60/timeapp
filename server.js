@@ -20,11 +20,18 @@ const cors = require('cors');
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(cors());
 
-app.use('/server',(rer,res,next)=>{
-    res.status(200).json({
-        message: 'hello server started'
+const userService = require('./routes/users');
+const picCotroller = require('./controller/pic.controller');
+
+app.use('/upload', express.static('uploads'))
+app.use('/user',userService );
+app.use('/pics',picCotroller.pic_updateRouter);
+app.use('/server',(req,res,next)=>{
+    console.log('hh');
+    res.json({
+        message: 'Hello! server has started'
     })
-})
+});
 
 app.get('/cal',(req,res)=>{
     let result = 0;
