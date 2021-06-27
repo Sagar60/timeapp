@@ -21,8 +21,9 @@ const checkAuth = require('./controller/tokenverify');
 
 require('./config/config');
 require('./config/db');
-
+/*
 app.use(morgan('dev'));
+*/
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -54,7 +55,7 @@ app.use('/servercheck',(req,res,next)=>{
         message: 'server started '
     })
 })
-
+/*
 app.use((req,res,next)=>{
     const error = new Error('There has a problem');
     error.status = 404;
@@ -69,7 +70,7 @@ app.use((error,req,res,next)=>{
         }
     })
 });
-
+*/
 app.get('/*',function(req,res) {
 	res.sendFile( 'index.html',{root: __dirname+'/first/html'} ); 	//here also name change as per app name
 });
