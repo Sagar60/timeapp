@@ -56,11 +56,8 @@ app.use((error,req,res,next)=>{
     })
 });
 
-app.get('/*',(req,res,next)=>{
-    console.log('hello');
-    res.status(200).json({
-        message: 'good'
-    })
+app.get('/*',function(req,res) {
+	res.sendFile( 'index.html',{root: __dirname+'/first/html'} ); 	//here also name change as per app name
 });
 
 // server start module
