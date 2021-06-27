@@ -1,8 +1,10 @@
-const app = require('./index.js');
+const app = require('./index');
+const http = require('http');
+
 // server start module
 const server = http.createServer(app);
-const host = '0.0.0.0';
-const port = process.env.PORT || 8080;
+const port = 4000;
+
 server.listen( port, ()=>{
     console.log(`server started at port:${port}`);
 });
