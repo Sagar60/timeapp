@@ -60,4 +60,5 @@ app.get('/*',function(req,res) {
 	res.sendFile( 'index.html',{root: __dirname+'/first/html'} ); 	//here also name change as per app name
 });
 
+module.exports = app;
 
