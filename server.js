@@ -22,10 +22,9 @@ require('./config/db');
 //     res.send('Hello Sagar');
 // })
 
-app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-
+app.use(cors());
 
 const userService = require('./routes/users');
 const picCotroller = require('./controller/pic.controller');
