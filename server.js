@@ -4,11 +4,11 @@ const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
+/*
 
 require('./config/config');
 require('./config/db');
-
+*/
 // const express = require('express');
 // const app = express();
 
