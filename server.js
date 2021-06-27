@@ -4,6 +4,7 @@ const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const checkAuth = require('./controller/tokenverify');
 
 /*
 require('./config/config');
