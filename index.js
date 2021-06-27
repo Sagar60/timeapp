@@ -28,16 +28,18 @@ app.use(bodyParser.json());
 // });
 
 // 
-
+/*
 const userService = require('./routes/users');
 const picCotroller = require('./controller/pic.controller');
 
 app.use('/upload', express.static('uploads'))
 app.use('/user',userService );
 app.use('/pics',picCotroller.pic_updateRouter);
+*/
 app.use('/servercheck',(req,res,next)=>{
+    console.log('hh');
     res.json({
-        message: 'server started at port:4000'
+        message: 'server started '
     })
 })
 
