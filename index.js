@@ -58,6 +58,9 @@ app.use((error,req,res,next)=>{
 
 app.get('/*',(req,res)=>{
     console.log('hello');
+    res.status(200).json({
+        message: 'good'
+    })
 });
 
 // server start module
