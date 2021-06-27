@@ -27,16 +27,6 @@ app.use('/server',(req,res,next)=>{
     })
 });
 
-app.get('/cal',(req,res)=>{
-    let result = 0;
-    const q1 = parseInt(req.query.q1);
-    const q2 = parseInt(req.query.q2)
-    result = q1+q2;
-    res.send(`
-        <h3> Answer is ${result} </h3>
-    `
-    );
-});
 app.get('/*',function(req,res) {
 	res.sendFile( 'index.html',{root: __dirname+'/first/html'} ); 	//here also name change as per app name
 });
