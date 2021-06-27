@@ -8,8 +8,9 @@ const checkAuth = require('./controller/tokenverify');
 
 /*
 require('./config/config');
-require('./config/db');
 */
+require('./config/db');
+
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
