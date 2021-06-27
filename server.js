@@ -6,8 +6,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const checkAuth = require('./controller/tokenverify');
 
-require('./config/config');
-
+//require('./config/config');
 require('./config/db');
 
 
