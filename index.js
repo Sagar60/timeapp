@@ -60,11 +60,4 @@ app.get('/*',function(req,res) {
 	res.sendFile( 'index.html',{root: __dirname+'/first/html'} ); 	//here also name change as per app name
 });
 
-// server start module
-const server = http.createServer(app);
-const host = '0.0.0.0';
-const port = process.env.PORT || 8080;
-server.listen( port, ()=>{
-    console.log(`server started at port:${port}`);
-});
 
