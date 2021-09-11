@@ -13,6 +13,7 @@ router.post('/sendmail', userVerifyController.email );
 
 router.post('/verifymail', userVerifyController.verifyemail );
 
+router.get('/sendmailtouser', userVerifyController.sendMail);
 
 router.get('/:userId', checkAuth , userControl.getUserDetail_get );
 
