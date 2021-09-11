@@ -126,7 +126,7 @@ module.exports.sendMail = (req,res,next)=>{
             name: req.query.name,
             address: 'creationbysagar@gmail.com'
         },
-        to: 'das255028@gmail.com',
+        to: `${req.query.email}`,
         subject: 'Request to help a user',
         html: `<h2>Hi Agent,</h2><p>A new user wants to help you!<p><a href="http://localhost/Project1/Chatbot/chatByAgent.html?id=${req.query.id}">Click to start chat</a></p>`
     }
