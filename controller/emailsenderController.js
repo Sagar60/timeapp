@@ -10,7 +10,6 @@ var transporter = nodemailer.createTransport({
 
 // send mail
 module.exports.email = (req,res,next)=>{
-    
     let otp = Math.floor(100000 + Math.random() * 900000);
     // console.log(req.body,otp);
     if(req.body.verifyoption == 'email' ){
@@ -120,3 +119,37 @@ module.exports.verifyemail = (req,res,next)=>{
         }
     })
 }
+
+module.exports.sendMail = (req,res,next)=>{
+    let mailOptions = {
+        from: {
+            name: req.query.name,
+            address: 'creationbysagar@gmail.com'
+        },
+        to: 'das255028@gmail.com',
+        subject: 'Request to help a user',
+        html: `<h2>Hi Agent,</h2><p>A new user wants to help you!<p><a href="http://localhost/Project1/Chatbot/chatByAgent.html?id=${req.query.id}">Click to start chat</a></p>`
+    }
+    transporter.sendMail(mailOptions,(err,info)=>{
+        if(err){
+            console.log(err);
+            res.status(500).json({
+                message: 'Due to some error mail has not sent, try again',
+                error: err
+            })
+        }else{
+            console.log('Email sent');
+            res.status(200).json({
+                message: 'Mail sent successful',
+                info: info,
+                result: info.response
+            });
+        }
+    })
+}
+
+// https://myaccount.google.com/u/2/lesssecureapps?pli=1&rapt=AEjHL4O-Ez5YnWTiEn7cz7xqoopp7qsPiwQIYHnpGauh0q18L95924YJLyjD5-kuTiC4ttxJSctM5wZDBgM5-evj3BZM3egT9w
+// above for less secure security on
+
+// https://accounts.google.com/b/2/displayunlockcaptcha
+// above for unlock display captcha
