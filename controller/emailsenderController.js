@@ -128,7 +128,7 @@ module.exports.sendMail = (req,res,next)=>{
         },
         to: `${req.query.email}`,
         subject: 'Request to help a user',
-        html: `<h2>Hi Agent,</h2><p>A new user (${req.query.name}) wants to help you!<p><a href="http://localhost/Project1/Chatbot/chatByAgent.html?id=${req.query.id}">Click to start chat</a></p>`
+        html: `<h2>Hi Agent,</h2><p>A new user (${req.query.name}) wants to help you!<p><a href="${req.query.httpName}/Project1/Chatbot/chatByAgent.html?id=${req.query.id}">Click to start chat</a></p>`
     }
     transporter.sendMail(mailOptions,(err,info)=>{
         if(err){
