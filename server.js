@@ -9,16 +9,24 @@ const checkAuth = require('./controller/tokenverify');
 //require('./config/config');
 require('./config/db');
 
+
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+app.set('views', __dirname);
+
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cors());
 
 const userService = require('./routes/users');
 const picCotroller = require('./controller/pic.controller');
+const extraWorks = require('./routes/extrawors');
 
 app.use('/upload', express.static('uploads'))
 app.use('/user',userService );
 app.use('/pics',picCotroller.pic_updateRouter);
+app.use('/extra',extraWorks);
+
 app.use('/server',(req,res,next)=>{
     console.log('hh');
     res.json({
@@ -45,6 +53,6 @@ app.get('/*',function(req,res) {
 	res.sendFile( 'index.html',{root: __dirname+'/first/html'} ); 	//here also name change as per app name
 });
 
-app.listen(process.env.PORT || 8080,()=>{
+app.listen( process.env.PORT || 8080,()=>{
 	console.log('server started at 8080');
 });
