@@ -10,7 +10,7 @@ module.exports.fbLink = (req,res,next)=>{
     .then( (result)=> {
         // const info = JSON.stringify(result,null,2)
         // res.render(__dirname + '/html/index.html',{sd: result.download.sd} );
-        //console.log(result.download);
+        console.log(result);
         res.status(200).json({
             information: result 
         });
