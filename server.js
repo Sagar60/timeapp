@@ -10,9 +10,9 @@ const checkAuth = require('./controller/tokenverify');
 require('./config/db');
 
 
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
-app.set('views', __dirname);
+// app.engine('html', require('ejs').renderFile);
+// app.set('view engine', 'html');
+// app.set('views', __dirname);
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
